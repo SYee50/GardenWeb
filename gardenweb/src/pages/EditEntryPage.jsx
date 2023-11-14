@@ -4,10 +4,8 @@ import { supabase } from '../client.js'
 
 
 const EditEntryPage = () => {
-    console.log("a")
     // get id from url
     const { id } = useParams();
-    console.log(id)
     // prevent unexpected behavior in routing if there is an error
     const navigate = useNavigate();
   
@@ -16,9 +14,10 @@ const EditEntryPage = () => {
     const [imgURL, setimgURL] = useState(null);
   
     useEffect(() => {
+      // get current data for id
       const fetchPost = async () => {
         const { data, error } = await supabase.from("Entries").select().eq("id", id).single();
-  
+        
         if (error) {
           navigate("/", { replace: true });
         }
@@ -35,7 +34,8 @@ const EditEntryPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
+        // update row with new inputs
         const { data, error } = await supabase
           .from("Entries")
           .update({ title, description, imgURL })
@@ -44,13 +44,16 @@ const EditEntryPage = () => {
         if (error) {
             console.log(error);
         }
-
+        
+        // redirect to homepage after user clicks on button
         window.location = "/";
     };
   
     return (
         <div>
             <h1 className="post-grid">Edit Story Page</h1>
+            {/* onChange update state variables */}
+            {/* onSubmit update row in database with new values */}
             <form onSubmit={handleSubmit}>
                 <input
                 type="text"
