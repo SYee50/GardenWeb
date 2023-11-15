@@ -45,8 +45,8 @@ const EditEntryPage = () => {
             console.log(error);
         }
         
-        // redirect to homepage after user clicks on button
-        window.location = "/";
+        // redirect to main post after user clicks on button
+        window.location = "/more/" + id;
     };
   
     return (
