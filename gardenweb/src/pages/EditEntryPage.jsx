@@ -51,7 +51,7 @@ const EditEntryPage = () => {
   
     return (
         <div>
-            <h1 className="post-grid">Edit Story Page</h1>
+            <h1 className="post-grid">Edit Journal Entry</h1>
             {/* onChange update state variables */}
             {/* onSubmit update row in database with new values */}
             <form onSubmit={handleSubmit}>
