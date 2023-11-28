@@ -10,6 +10,7 @@ const Layout = () => {
             <Link style={{ color: "black" }} to="/">Home</Link>
         </button>
       </nav>
+      
       {/* Outlet is where subsequent components will be placed on page layout */}
       <Outlet />
     </div>
