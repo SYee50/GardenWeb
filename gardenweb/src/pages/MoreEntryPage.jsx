@@ -54,9 +54,9 @@ const MoreEntryPage = () => {
             <img className="content" src={imgURL} />
             <div className="button-container" style={{margin: "auto 0 0 0"}}>
               <Link to={"/edit/" + id} >
-                  <button> Edit </button>
+                  <button style={{backgroundColor: "gray", color: "white"}}> Edit </button>
               </Link>
-              <button onClick={deletePost}>Delete</button>
+              <button style={{backgroundColor: "#ef233c", color: "white"}} onClick={deletePost}>Delete</button>
             </div>
         </div>
       );

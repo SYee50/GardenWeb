@@ -170,3 +170,15 @@ form textarea {
 .update-button {
   width: 100%;
 }
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.button-container button {
+  margin-top: 50px;
+  margin-left: 15px;
+  width: 150px;
+}
