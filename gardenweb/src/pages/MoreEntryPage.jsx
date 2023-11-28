@@ -11,10 +11,10 @@ const MoreEntryPage = () => {
     const navigate = useNavigate();
 
     
-    const [time, setTime] = useState(null)
-    const [title, setTitle] = useState(null)
-    const [description, setDescription] = useState(null);
-    const [imgURL, setimgURL] = useState(null);
+    const [time, setTime] = useState("")
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("");
+    const [imgURL, setimgURL] = useState("");
   
     useEffect(() => {
       // get current data for id
@@ -35,16 +35,29 @@ const MoreEntryPage = () => {
   
       fetchPost();
     }, [id, navigate]);
+
+    const deletePost = async (e) => {
+      e.preventDefault()
+
+      await supabase
+        .from('Entries').delete().eq('id', id)
+      
+      // redirrect to homepage after post deleted
+      window.location = '/'
+    }
   
     return (
         <div className="Card">
-            <p className="content">Posted On: {time}</p>
+            <p className="content">Posted On: {time.substring(0,10)}</p>
             <h2 className="title">Entry Title: {title}</h2>
             <p className="content">{description}</p>
             <img className="content" src={imgURL} />
-            <Link to={"/edit/" + id}>
-                <button style={{display: "block", margin: "0 0 0 auto"}}> Edit </button>
-            </Link>
+            <div className="button-container" style={{margin: "auto 0 0 0"}}>
+              <Link to={"/edit/" + id} >
+                  <button> Edit </button>
+              </Link>
+              <button onClick={deletePost}>Delete</button>
+            </div>
         </div>
       );
 }
