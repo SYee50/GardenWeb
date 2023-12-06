@@ -71,7 +71,10 @@ const MoreEntryPage = () => {
             <p className="content">Posted On: {time.substring(0,10)}</p>
             <h2 className="title">Entry Title: {title}</h2>
             <p className="content">{description}</p>
-            <img className="content" src={imgURL} />
+
+            {/* only render the image if an imageURL is present */}
+            {imgURL && <img className="content" src={imgURL}/>}
+
             <div className="button-container" style={{margin: "auto 0 0 0"}}>
               <Link to={"/edit/" + id} >
                   <button style={{backgroundColor: "gray", color: "white"}}> Edit </button>
