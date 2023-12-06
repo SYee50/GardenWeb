@@ -171,10 +171,11 @@ form textarea {
   width: 100%;
 }
 
+/* delete styles */
+
 .button-container {
   display: flex;
   justify-content: flex-end;
-
 }
 
 .button-container button {

@@ -46,7 +46,7 @@ const MoreEntryPage = () => {
       await supabase
         .from('Entries').delete().eq('id', id)
       
-      // redirrect to homepage after post deleted
+      // redirect to homepage after post deleted
       window.location = '/'
     }
 
