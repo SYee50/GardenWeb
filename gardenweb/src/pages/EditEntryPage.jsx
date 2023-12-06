@@ -61,6 +61,7 @@ const EditEntryPage = () => {
                 placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                required
                 />
 
                 <textarea
@@ -69,6 +70,7 @@ const EditEntryPage = () => {
                 placeholder="Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                required
                 />
 
                 <input

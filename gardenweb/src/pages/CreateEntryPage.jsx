@@ -39,18 +39,37 @@ const CreateEntryPage = () => {
     return (
         <div>
             <h1 className="post-grid">Create New Journal Entry</h1>
-            <form>
+            <form onSubmit={createPost}>
                 <label>Title</label>
-                <input type="text" id="title" name="title" value ={post.title} onChange={handleChange}/>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    value ={post.title} 
+                    onChange={handleChange}
+                    required/>
 
                 <label >Description</label>
-                <textarea name="description" rows="5" cols="50" id="description" value ={post.description} onChange={handleChange}>
+                <textarea 
+                    name="description" 
+                    rows="5" 
+                    cols="50" 
+                    id="description" 
+                    value ={post.description} 
+                    onChange={handleChange}
+                    required
+                    >
                 </textarea>
 
                 <label >Image URL (optional)</label><br />
-                <input type="text" id="imgURL" name="imgURL" value ={post.imgURL} onChange={handleChange}/>
+                <input 
+                    type="text" 
+                    id="imgURL" 
+                    name="imgURL" 
+                    value ={post.imgURL} 
+                    onChange={handleChange}/>
 
-                <input type="submit" value="Create New Journal Entry" onClick={createPost} />
+                <input type="submit" value="Create New Journal Entry" />
             </form>
         </div>
     )
