@@ -51,10 +51,12 @@ const EditEntryPage = () => {
   
     return (
         <div>
-            <h1 className="post-grid">Edit Journal Entry</h1>
+            <h1 className="other-header">Edit Journal Entry</h1>
+
             {/* onChange update state variables */}
             {/* onSubmit update row in database with new values */}
             <form onSubmit={handleSubmit}>
+                <label>Title</label>
                 <input
                 type="text"
                 id="title"
@@ -64,6 +66,7 @@ const EditEntryPage = () => {
                 required
                 />
 
+                <label >Description</label>
                 <textarea
                 id="description"
                 type="text"
@@ -73,6 +76,7 @@ const EditEntryPage = () => {
                 required
                 />
 
+                <label >Image URL (optional)</label>
                 <input
                 type="text"
                 id="imgURL"
@@ -81,7 +85,7 @@ const EditEntryPage = () => {
                 onChange={(e) => setimgURL(e.target.value)}
                 />
 
-                <button className="update-button">Update Journal Entry</button>
+                <button className="form-button">Update Journal Entry</button>
             </form>
         </div>
     )

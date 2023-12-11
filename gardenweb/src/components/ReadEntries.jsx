@@ -46,7 +46,7 @@ const ReadEntries = (props) => {
                              description={entry.description} 
                              imgURL={entry.imgURL}/>
                     </Link>
-                  ) : <h3 className="noResults">{'No Entries Yet'}</h3>
+                  ) : <h1></h1>
             }
         </div>  
     )

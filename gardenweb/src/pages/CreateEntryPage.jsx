@@ -41,7 +41,8 @@ const CreateEntryPage = () => {
 
     return (
         <div>
-            <h1 className="post-grid">Create New Journal Entry</h1>
+            <h1 className="other-header">Create New Journal Entry</h1>
+
             <form onSubmit={createEntry}>
                 <label>Title</label>
                 <input 
@@ -64,7 +65,7 @@ const CreateEntryPage = () => {
                     >
                 </textarea>
 
-                <label >Image URL (optional)</label><br />
+                <label >Image URL (optional)</label>
                 <input 
                     type="text" 
                     id="imgURL" 
@@ -72,7 +73,7 @@ const CreateEntryPage = () => {
                     value ={entry.imgURL} 
                     onChange={handleChange}/>
 
-                <input type="submit" value="Create New Journal Entry" />
+                <button className="form-button">Create New Journal Entry</button>
             </form>
         </div>
     )

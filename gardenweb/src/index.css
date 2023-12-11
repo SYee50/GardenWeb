@@ -1,179 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
+:root {
+  --emerald: #081c15;
+  --medium-green: #1b4332;
+  --light-green: #b9c6ae;
+  --smokey: #333;
+}
+
+/* maintain layout on wide-screen */
 .app {
-  /* maintain layout on wide-screen */
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* homepage header image */
+.title-header {
+  /*
+  Description: Photograph with green leafed plant
+  Photographer: Irina Iriser
+  URL: https://unsplash.com/photos/closeup-photo-of-green-leafed-plant-3WHuGf2cVyM
+  */
+  background-image: url('./image/leaves.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 350px;
+  margin: 0;
+  color: whitesmoke;
+  display: grid;
+  place-items: center;
+}
+
+/* all page styles */
+html {
+  overflow-y: scroll;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1.1em;
+  padding: 0.5em 1em;
+  font-size: 1.15em;
   font-weight: 500;
-  font-family: inherit;
   background-color: #f9f9f9;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.35s;
 }
+
 button:hover {
-  border-color: #213547;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-color: var(--smokey);
 }
 
 h1 {
-  font-size: 4.2em;
-  line-height: 1.1;
-  margin-bottom: 50px;
+  font-size: 5em;
+  line-height: 1.2;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-.app-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-.homepage-buttons {
-  margin-right: 20px;
-  width: 350px;
-}
-
-.page-title {
-  margin: 50px 0;
-  text-align: center;
-}
-
-/* ---------------- */
-
-html {
-  overflow-y: scroll;
-}
-:root {
-  --primary: #12bca2;
-  --secondary: #6d15df;
-}
-h1,h2,h3 {
-  margin: 0;
-}
 body {
   margin: 0;
-  color: #333;
+  color: var(--smokey);
   font-family: 'Poppins';
-  background: #f2f2f2;
+  background: var(--light-green);
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
+/* navigation bar styles - bootstrap also used */
+
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--primary);
-  padding: 10px 5% 10px 20px;
+  color: whitesmoke;
+  background: var(--emerald);
 }
 
-/* post grid */
-.post-grid {
-  margin: 20px;
+.home-button {
+  background: var(--emerald);
+  color: whitesmoke;
+}
+
+.home-button:hover {
+  background: var(--medium-green);
+  color: whitesmoke;
+}
+
+/* edit and create form styles */
+
+.other-header {
   display: grid;
-  gap: 20px;
   justify-items: center;
-}
-.post-card {
-  width: 90%;
-  padding: 10px 20px;
-  background: #fff;
-  box-sizing: border-box;
-  border-radius: 6px;
-  position: relative;
-}
-.post-card a {
-  text-decoration: none;
-  color: black;
-}
-.post-card img {
-  max-height: 600px;
-  max-width: 100%;
-  margin-bottom: 1rem;
-}
-.post-card i {
-  color: #bbb;
-  margin-left: 10px;
-  font-size: 1.2em;
-  padding: 6px;
-  background: #eee;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.post-card .buttons {
-  width: 100%;
-  margin: 20px 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin: 50px;
 }
 
-/* forms */
 form {
-  background: #fff;
-  padding: 20px;
-  max-width: 600px;
+  background: white;
+  padding: 25px;
+  max-width: 840px;
   margin: 0 auto;
   border-radius: 6px;
 }
+
 form input {
   display: block;
-  font-size: 16px;
+  font-size: 20px;
   width: 100%;
-  padding: 6px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  /* margin: 10px 0 20px 0; */
-  padding: 8px;
+  border: 1px solid lightgray;
+  padding: 10px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
+
 form textarea {
   display: block;
-  font-size: 16px;
+  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  height: 200px;
-  padding: 6px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  padding: 8px;
+  height: 250px;
+  border: 1px solid lightgray;
+  padding: 10px;
   border-radius: 5px;
-  resize: none;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-#home-title {
-  text-align: center;
-  margin: 50px 0;
-}
-
-.volunteer-image {
-  filter: grayscale(1);
-  margin-bottom: 35px;
-}
-
-.update-button {
+.form-button {
   width: 100%;
 }
 

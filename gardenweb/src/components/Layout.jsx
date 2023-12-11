@@ -4,10 +4,11 @@ import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
   return (
     <div>
-      <nav className="navbar navbar-light bg-light">
+      {/* <nav className="navbar navbar-light bg-light"> */}
+      <nav className="navbar">
         <h3 style={{margin: "0 20px"}}>GardenWeb</h3>
-        <button className="navbar-brand">
-            <Link style={{ color: "black" }} to="/">Home</Link>
+        <button className="navbar-brand home-button">
+            <Link to="/">Home</Link>
         </button>
       </nav>
       
