@@ -30,7 +30,7 @@ const ReadEntries = (props) => {
     }
 
     return (
-        <div className="ReadPosts">
+        <div id='entries-list'>
             {/* map out each row of data to an Entry component */}
             {/* filter entries by title when user types in search bar */}
             {

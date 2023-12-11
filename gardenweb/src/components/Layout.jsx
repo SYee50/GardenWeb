@@ -6,7 +6,7 @@ const Layout = () => {
     <div>
       {/* <nav className="navbar navbar-light bg-light"> */}
       <nav className="navbar">
-        <h3 style={{margin: "0 20px"}}>GardenWeb</h3>
+        <h3>GardenWeb</h3>
         <button className="navbar-brand home-button">
             <Link to="/">Home</Link>
         </button>

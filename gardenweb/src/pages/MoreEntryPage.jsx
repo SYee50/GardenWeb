@@ -75,7 +75,7 @@ const MoreEntryPage = () => {
 
 
     return (
-        <div className="Card app" style={{marginTop: "50px"}}>
+        <div id="expanded-view-box" className="card app">
             <p className="content">Posted On: {time.substring(0,10)}</p>
             <h2 className="title">Entry Title: {title}</h2>
             <p className="content">{description}</p>
@@ -87,9 +87,9 @@ const MoreEntryPage = () => {
 
             <div className="button-container" style={{margin: "auto 0 0 0"}}>
               <Link to={"/edit/" + id} >
-                  <button style={{backgroundColor: "gray", color: "white"}}> Edit </button>
+                  <button id="edit-button"> Edit </button>
               </Link>
-              <button style={{backgroundColor: "#ef233c", color: "white"}} onClick={handleDeleteClick}>Delete</button>
+              <button id="delete-button" onClick={handleDeleteClick}>Delete</button>
             </div>
 
             {/* pop-up prompt to ask user if they want to proceed with deleting the entry */}
@@ -97,8 +97,8 @@ const MoreEntryPage = () => {
               <div className="prompt">
                 <h5>Do you want to delete journal entry: <strong>{title}</strong>?</h5>
                 <h5><strong>Warning:</strong> Deleting a journal entry is permanent!</h5>
-                <button onClick={handlePermanentDelete} style={{borderColor: "#ef233c"}}>Delete</button>
-                <button onClick={handleCancel} style={{borderColor: "#6a994e"}}>Cancel</button>
+                <button id="delete-button-final" onClick={handlePermanentDelete} >Delete</button>
+                <button onClick={handleCancel}>Cancel</button>
               </div>
             )}
         </div>

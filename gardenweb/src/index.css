@@ -86,6 +86,10 @@ nav {
   color: whitesmoke;
 }
 
+nav h3 {
+  margin: 0 20px;
+}
+
 /* search bar styles */
 #search-bar-create {
   display: flex;
@@ -153,7 +157,11 @@ form textarea {
   width: 100%;
 }
 
-/* delete styles */
+/* more entry page style */
+
+#expanded-view-box {
+  margin-top: 60px;
+}
 
 .button-container {
   display: flex;
@@ -164,6 +172,21 @@ form textarea {
   margin-top: 50px;
   margin-left: 15px;
   width: 150px;
+}
+
+#delete-button {
+  background-color: #ef233c;
+  color: white;
+}
+
+#edit-button {
+  background-color: gray;
+  color: white;
+}
+
+#delete-button-final {
+  background-color: #ef233c;
+  color: white;
 }
 
 .prompt {

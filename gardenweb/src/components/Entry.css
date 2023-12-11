@@ -1,6 +1,6 @@
-.Card {
+.card {
     backdrop-filter: blur(2px);
-    border: 1px solid rgba(153, 153, 153, 0.497);
+    border: 1px solid lightgray;
     border-radius: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -9,6 +9,14 @@
     width: 90%;
     text-align: center;
     background: #fff;
+    display: grid;
+    justify-items: center;
+    transition: background-color 0.25 ease;
+}
+
+#entries-list .card:hover {
+    background: #f4f3ee;
+    border: 1px solid gray;
 }
 
 .title {
@@ -25,10 +33,10 @@
 
 img {
     width: 50%;
-    height: 50%;
+    height: 100%;
 }
 
-.Card button {
+.card button {
     border: 1px #ccc solid;
     background: #fff;
 }
