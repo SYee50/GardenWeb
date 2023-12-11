@@ -12,10 +12,9 @@ function App() {
         <h1 >Journal Entries</h1>
 
         {/* search bar and crate button */}
-        <div style={{display: 'flex', width: '70%', margin: "20px auto", borderRadius: "15px", maxWidth: "840px"}}>
-            <div style={{display: 'flex', width: '75%'}}>
+        <div id="search-bar-create" >
+            <div id="search-bar" >
               <input 
-                style={{width: '100%', marginRight: "10px", fontSize: "x-large", minWidth: "275px"}} 
                 type="search" 
                 placeholder=" 🔍 Search" 
                 aria-label="Search" 
@@ -27,7 +26,7 @@ function App() {
 
             </div>
             <Link to={'/create'} >
-              <button style={{minWidth: "275px"}} >Create New Journal Entry</button>
+              <button id="create-button" >Create New Journal Entry</button>
             </Link>
         </div>
       </div>

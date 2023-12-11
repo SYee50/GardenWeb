@@ -86,6 +86,31 @@ nav {
   color: whitesmoke;
 }
 
+/* search bar styles */
+#search-bar-create {
+  display: flex;
+  width: 70%;
+  margin: 20px auto;
+  border-radius: 15px;
+  max-width: 840px;
+}
+
+#search-bar {
+  display: flex;
+  width: 75%;
+}
+
+#search-bar input {
+  width: 100%;
+  margin-right: 10px;
+  font-size: x-large;
+  min-width: 250px
+}
+
+#create-button {
+  min-width: 275px;
+}
+
 /* edit and create form styles */
 
 .other-header {
