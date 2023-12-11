@@ -4,47 +4,47 @@ import { Link } from "react-router-dom"
 import Entry from "./Entry";
 
 const ReadEntries = (props) => {
-    const [posts, setPosts] = useState([]);
+    const [entries, setEntries] = useState([]);
 
     // confirm search input is passed to component
     console.log(props.search)
 
     useEffect(() => {
       // READ all rows from Entries table
-      const fetchPosts = async () => {
+      const fetchEntries = async () => {
         const {data} = await supabase
         .from('Entries')
         .select()
         .order('created_at', { ascending: true })
         
         // set state variable to data
-        setPosts(data)
+        setEntries(data)
       }
 
-      fetchPosts()
+      fetchEntries()
     }, []);
 
     // indicate if the search input is present in a journal entry's title
-    const matchSearchInput = (post) => {
-      return post.title.toLowerCase().includes(props.search.toLowerCase())
+    const matchSearchInput = (entry) => {
+      return entry.title.toLowerCase().includes(props.search.toLowerCase())
     }
 
     return (
         <div className="ReadPosts">
             {/* map out each row of data to an Entry component */}
-            {/* filter posts by title when user types in search bar */}
+            {/* filter entries by title when user types in search bar */}
             {
-              posts && posts.length > 0 ?
-                posts
+              entries && entries.length > 0 ?
+                entries
                   .filter(matchSearchInput)
-                  .map((post) =>
-                    <Link to={"/more/" + post.id}>
-                      <Entry key={post.id} 
-                             id={post.id} 
-                             title={post.title} 
-                             time={post.created_at} 
-                             description={post.description} 
-                             imgURL={post.imgURL}/>
+                  .map((entry) =>
+                    <Link to={"/more/" + entry.id}>
+                      <Entry key={entry.id} 
+                             id={entry.id} 
+                             title={entry.title} 
+                             time={entry.created_at} 
+                             description={entry.description} 
+                             imgURL={entry.imgURL}/>
                     </Link>
                   ) : <h3 className="noResults">{'No Entries Yet'}</h3>
             }

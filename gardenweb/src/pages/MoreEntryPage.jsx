@@ -16,12 +16,15 @@ const MoreEntryPage = () => {
     const [description, setDescription] = useState("");
     const [imgURL, setimgURL] = useState("");
 
+    // state variable for broken image url
+    const [imageError, setImageError] = useState(false)
+
     // state variable for pop-up prompt
     const [showPrompt, setShowPrompt] = useState(false)
   
     useEffect(() => {
       // get current data for id
-      const fetchPost = async () => {
+      const fetchEntry = async () => {
         const { data, error } = await supabase.from("Entries").select().eq("id", id).single();
         
         if (error) {
@@ -36,17 +39,18 @@ const MoreEntryPage = () => {
         }
       };
   
-      fetchPost();
+      fetchEntry();
     }, [id, navigate]);
 
+
     // delete journal entry
-    const deletePost = async (e) => {
+    const deleteEntry = async (e) => {
       e.preventDefault()
 
       await supabase
         .from('Entries').delete().eq('id', id)
       
-      // redirect to homepage after post deleted
+      // redirect to homepage after entry deleted
       navigate('/')
     }
 
@@ -57,7 +61,7 @@ const MoreEntryPage = () => {
 
     // user clicks "Delete" in prompt and deletion proceeds
     const handlePermanentDelete = (e) => {
-      deletePost(e)
+      deleteEntry(e)
       setShowPrompt(false)
     }
 
@@ -66,14 +70,20 @@ const MoreEntryPage = () => {
       setShowPrompt(false)
     }
 
+    // handle broken image url
+    const handleImgError = () => setImageError(true)
+
+
     return (
         <div className="Card">
             <p className="content">Posted On: {time.substring(0,10)}</p>
             <h2 className="title">Entry Title: {title}</h2>
             <p className="content">{description}</p>
 
-            {/* only render the image if an imageURL is present */}
-            {imgURL && <img className="content" src={imgURL}/>}
+            {/* only render the image if an imageURL is present and the link is not broken */}
+            {imgURL && !imageError && <img className="content" src={imgURL} onError={handleImgError}/>}
+            {/* display a message letting user know the image url is broken */}
+            {imageError && <p>Something went wrong with the image url! Please check on the image url, and replace it with a working url.</p>}
 
             <div className="button-container" style={{margin: "auto 0 0 0"}}>
               <Link to={"/edit/" + id} >
@@ -85,7 +95,7 @@ const MoreEntryPage = () => {
             {/* pop-up prompt to ask user if they want to proceed with deleting the entry */}
             {showPrompt && (
               <div className="prompt">
-                <h5>Do you want to delete journal entry: {title}?</h5>
+                <h5>Do you want to delete journal entry: <strong>{title}</strong>?</h5>
                 <h5><strong>Warning:</strong> Deleting a journal entry is permanent!</h5>
                 <button onClick={handlePermanentDelete} style={{borderColor: "#ef233c"}}>Delete</button>
                 <button onClick={handleCancel} style={{borderColor: "#6a994e"}}>Cancel</button>
