@@ -28,8 +28,6 @@ const CreateEntryPage = () => {
         .insert({title: entry.title, description: entry.description, imgURL: entry.imgURL})
         .select()
 
-        console.log("inserted to entries")
-
         if (error) {
             console.log(error);
         }
