@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from '../client.js'
+
 
 const CreateEntryPage = () => {
     // state variable to hold user input data (must be "" to use .substring())
-    const [post, setPost] = useState({title: "", description: "", imgURL: ""})
+    const [entry, setEntry] = useState({title: "", description: "", imgURL: ""})
+    const navigate = useNavigate();
 
-    // update post state variable with form inputs
+    // update entry state variable with form inputs
     const handleChange = (event) => {
         const {name, value} = event.target;
-        setPost( (prev) => {
+        setEntry( (prev) => {
             return {
                 ...prev,
                 [name]:value,
@@ -16,13 +19,13 @@ const CreateEntryPage = () => {
         })
     }
 
-    // insert entry post data to supabase database
-    const createPost = async (event) => {
+    // insert entry  data to supabase database
+    const createEntry = async (event) => {
         event.preventDefault();
 
         const { error } = await supabase
         .from('Entries')
-        .insert({title: post.title, description: post.description, imgURL: post.imgURL})
+        .insert({title: entry.title, description: entry.description, imgURL: entry.imgURL})
         .select()
 
         console.log("inserted to entries")
@@ -32,20 +35,20 @@ const CreateEntryPage = () => {
         }
         
         // route to this homepage after submit
-        window.location = "/";
+        navigate('/')
 
     }
 
     return (
         <div>
             <h1 className="post-grid">Create New Journal Entry</h1>
-            <form onSubmit={createPost}>
+            <form onSubmit={createEntry}>
                 <label>Title</label>
                 <input 
                     type="text" 
                     id="title" 
                     name="title" 
-                    value ={post.title} 
+                    value ={entry.title} 
                     onChange={handleChange}
                     required/>
 
@@ -55,7 +58,7 @@ const CreateEntryPage = () => {
                     rows="5" 
                     cols="50" 
                     id="description" 
-                    value ={post.description} 
+                    value ={entry.description} 
                     onChange={handleChange}
                     required
                     >
@@ -66,7 +69,7 @@ const CreateEntryPage = () => {
                     type="text" 
                     id="imgURL" 
                     name="imgURL" 
-                    value ={post.imgURL} 
+                    value ={entry.imgURL} 
                     onChange={handleChange}/>
 
                 <input type="submit" value="Create New Journal Entry" />

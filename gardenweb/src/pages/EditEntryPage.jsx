@@ -15,7 +15,7 @@ const EditEntryPage = () => {
   
     useEffect(() => {
       // get current data for id
-      const fetchPost = async () => {
+      const fetchEntry = async () => {
         const { data, error } = await supabase.from("Entries").select().eq("id", id).single();
         
         if (error) {
@@ -29,7 +29,7 @@ const EditEntryPage = () => {
         }
       };
   
-      fetchPost();
+      fetchEntry();
     }, [id, navigate]);
 
     const handleSubmit = async (e) => {
@@ -45,7 +45,7 @@ const EditEntryPage = () => {
             console.log(error);
         }
         
-        // redirect to main post after user clicks on button
+        // redirect to main entry page after user clicks on button
         navigate('/more/' + id)
     };
   
