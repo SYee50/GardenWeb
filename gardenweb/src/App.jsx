@@ -7,7 +7,7 @@ function App() {
   const [searchInput, setSearchInput] = useState("")
 
   return (
-    <div>
+    <div className='app'>
 
       <h1 id="home-title" >Journal Entries</h1>
 

@@ -16,7 +16,7 @@ const MoreEntryPage = () => {
     const [description, setDescription] = useState("");
     const [imgURL, setimgURL] = useState("");
 
-    // state variable for broken image url
+    // state variable for image url loading error
     const [imageError, setImageError] = useState(false)
 
     // state variable for pop-up prompt
@@ -70,12 +70,12 @@ const MoreEntryPage = () => {
       setShowPrompt(false)
     }
 
-    // handle broken image url
+    // handle image loading error (could be broken link, network/server issues, etc...)
     const handleImgError = () => setImageError(true)
 
 
     return (
-        <div className="Card">
+        <div className="Card app" style={{marginTop: "50px"}}>
             <p className="content">Posted On: {time.substring(0,10)}</p>
             <h2 className="title">Entry Title: {title}</h2>
             <p className="content">{description}</p>
@@ -83,7 +83,7 @@ const MoreEntryPage = () => {
             {/* only render the image if an imageURL is present and the link is not broken */}
             {imgURL && !imageError && <img className="content" src={imgURL} onError={handleImgError}/>}
             {/* display a message letting user know the image url is broken */}
-            {imageError && <p>Something went wrong with the image url! Please check on the image url, and replace it with a working url.</p>}
+            {imageError && <p>An error occurred while attempting to load the image URL!</p>}
 
             <div className="button-container" style={{margin: "auto 0 0 0"}}>
               <Link to={"/edit/" + id} >
