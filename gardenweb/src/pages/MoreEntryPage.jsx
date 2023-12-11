@@ -47,7 +47,7 @@ const MoreEntryPage = () => {
         .from('Entries').delete().eq('id', id)
       
       // redirect to homepage after post deleted
-      window.location = '/'
+      navigate('/')
     }
 
     // user clicks on "Delete" in initial page and pop-up appears

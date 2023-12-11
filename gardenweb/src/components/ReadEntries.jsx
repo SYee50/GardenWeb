@@ -6,6 +6,7 @@ import Entry from "./Entry";
 const ReadEntries = (props) => {
     const [posts, setPosts] = useState([]);
 
+    // confirm search input is passed to component
     console.log(props.search)
 
     useEffect(() => {

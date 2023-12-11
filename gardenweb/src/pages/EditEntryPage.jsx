@@ -46,7 +46,7 @@ const EditEntryPage = () => {
         }
         
         // redirect to main post after user clicks on button
-        window.location = "/more/" + id;
+        navigate('/more/' + id)
     };
   
     return (
