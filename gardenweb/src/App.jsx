@@ -1,4 +1,3 @@
-import './App.css'
 import ReadEntries from './components/ReadEntries'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
